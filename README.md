@@ -35,23 +35,23 @@ This project demonstrates login, form handling, database connectivity, and searc
 md
 Employee/
 │
-├── src/
-│ └── main/
-│ ├── java/
-│ │ └── com/
-│ │ └── employee/
-│ │ ├── servlet/ # Servlets
-│ │ ├── dao/ # DAO classes
-│ │ └── util/ # DB / utility logic
+├── src
+│ └── main
+│ ├── java
+│ │ └── com
+│ │ └── employee
+│ │ ├── servlet    # Servlets
+│ │ ├── dao        # DAO classes
+│ │ └── util       # DB / utility logic
 │ │
-│ └── webapp/
-│ ├── css/ # CSS files
-│ ├── js/ # JavaScript files
-│ ├── images/ # Images
-│ ├── WEB-INF/
+│ └── webapp
+│ ├── css          # CSS files
+│ ├── js           # JavaScript files
+│ ├── images       # Images
+│ ├── WEB-INF
 │ │ └── web.xml
-│ └── *.jsp # JSP pages
+│ └── *.jsp        # JSP pages
 │
-├── pom.xml # Maven dependencies
+├── pom.xml        # Maven dependencies
 ├── README.md
 └── .gitignore
