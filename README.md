@@ -32,3 +32,14 @@ This project demonstrates login, form handling, database connectivity, and searc
 
 ## 📁 Project Structure (Typical)
 
+Employee/
+│
+├── src/
+│ └── main/
+│ ├── java/ # Servlets, DAO, DB logic
+│ └── webapp/ # JSP/HTML/CSS pages
+│
+├── pom.xml # Maven dependencies (if applicable)
+├── README.md
+└── .gitignore
+
