@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<h1>Student Details</h1>
-
 </body>
 </html>
