@@ -6,96 +6,95 @@
 
 <style>
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	min-height: 100vh;
+	background: linear-gradient(135deg, #667eea, #764ba2);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .container {
-    width: 380px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-in-out;
-    text-align: center;
+	width: 380px;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(12px);
+	border-radius: 20px;
+	padding: 40px;
+	box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+	animation: fadeIn 1s ease-in-out;
+	text-align: center;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@
+keyframes fadeIn {from { opacity:0;
+	transform: translateY(40px);
 }
 
+to {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+}
 h1 {
-    color: #fff;
-    font-size: 28px;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
+	color: #fff;
+	font-size: 28px;
+	margin-bottom: 30px;
+	letter-spacing: 1px;
 }
 
 .welcome-text {
-    font-size: 16px;
-    color: #f1f1f1;
-    margin-bottom: 35px;
-    opacity: 0.95;
+	font-size: 16px;
+	color: #f1f1f1;
+	margin-bottom: 35px;
+	opacity: 0.95;
 }
 
 .logout-btn {
-    display: inline-block;
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
-    transition: 0.4s;
+	display: inline-block;
+	width: 100%;
+	padding: 14px;
+	border-radius: 12px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	background: linear-gradient(135deg, #ff416c, #ff4b2b);
+	transition: 0.4s;
 }
 
 .logout-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(255, 75, 43, 0.6);
+	transform: translateY(-3px);
+	box-shadow: 0 10px 25px rgba(255, 75, 43, 0.6);
 }
 
 .footer-text {
-    margin-top: 25px;
-    font-size: 13px;
-    color: #eee;
-    opacity: 0.9;
+	margin-top: 25px;
+	font-size: 13px;
+	color: #eee;
+	opacity: 0.9;
 }
 </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Home Page</h1>
+	<div class="container">
+		<h1>Home Page</h1>
 
-        <div class="welcome-text">
-            Welcome! You have successfully logged in.
-        </div>
+		<div class="welcome-text">Welcome! You have successfully logged
+			in.</div>
 
-        <a href="logout" class="logout-btn">Logout</a>
+		<a href="logout" class="logout-btn">Logout</a>
 
-        <div class="footer-text">Rashmiranjan Shaw</div>
-    </div>
+		<div class="footer-text">Rashmiranjan Shaw</div>
+	</div>
 
 </body>
 </html>
