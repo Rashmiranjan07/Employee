@@ -45,11 +45,10 @@ Employee/
 │       │           └── util/        # DB / utility logic
 │       │
 │       └── webapp/
+|           | └── web.xml
 │           ├── css/                # CSS files
 │           ├── js/                 # JavaScript files
-│           ├── images/             # Images
 │           ├── WEB-INF/
-│           │   └── web.xml
 │           └── *.jsp               # JSP pages
 │
 ├── pom.xml                         # Maven dependencies
