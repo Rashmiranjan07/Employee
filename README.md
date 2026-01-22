@@ -30,4 +30,30 @@ This project demonstrates login, form handling, database connectivity, and searc
 - **Maven** (if `pom.xml` is used)
 
 ---
+## 📁 Project Structure
+
+```
+Employee/
+│
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── employee/
+│       │           ├── servlet/     # Servlets
+│       │           ├── dao/         # DAO classes
+│       │           └── util/        # DB / utility logic
+│       │
+│       └── webapp/
+│           ├── css/                # CSS files
+│           ├── js/                 # JavaScript files
+│           ├── images/             # Images
+│           ├── WEB-INF/
+│           │   └── web.xml
+│           └── *.jsp               # JSP pages
+│
+├── pom.xml                         # Maven dependencies
+├── README.md
+└── .gitignore
+```
 
