@@ -4,6 +4,8 @@
 A simple **Employee Management System** built using **Core Java + JSP/Servlet + JDBC + MySQL** in **Eclipse IDE** and deployed on **Apache Tomcat**.  
 This project demonstrates login, form handling, database connectivity, and searching employee/student records by email.
 
+The project is built using **Eclipse IDE** and deployed on **Apache Tomcat**.
+
 ---
 
 ## 📌 Features
