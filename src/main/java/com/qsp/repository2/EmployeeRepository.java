@@ -2,6 +2,7 @@ package com.qsp.repository2;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.qsp.util2.ConnectionPool;
@@ -40,4 +41,13 @@ public class EmployeeRepository {
 
 		return "employee added";
 	}
+	public ResultSet getStudentByEmail(String email) throws SQLException {
+		Connection con=ConnectionPool.supply();
+		String sql="select * from employeTable where email=? ";
+		PreparedStatement ps=con.prepareStatement(sql);
+		ps.setString(1, email);
+		ResultSet rs=ps.executeQuery();
+		return rs;
+	}
+	
 }
