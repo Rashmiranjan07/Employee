@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.qsp.repository2.EmployeeRepository;
 
-@WebServlet("/")
+@WebServlet("/deleteemployee")
 public class DeleteEmployeeServlet {
 
 	private EmployeeRepository employeerepo = EmployeeRepository.getInstance();
