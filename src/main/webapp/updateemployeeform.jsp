@@ -31,7 +31,7 @@
         String gender = rs.getString(5);   // 👈 gender column
     %>
 
-    <form action="updateemployee">
+    <form action="">
         <h1>
             <input type="hidden" name="email" value="<%=email%>"> <br>
 
