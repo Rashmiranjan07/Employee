@@ -28,6 +28,7 @@
 	String name = rs.getString(1);
 	int age = rs.getInt(2);
 	String phone = rs.getString(3);
+	String gender = rs.getString(4);
 	%>
 
 	<form action="">
@@ -38,7 +39,10 @@
 
 			Age <input type="text" name="age" value="<%=age%>"> <br>
 
-			Phone number <input type="text" name="phone" value="<%=phone%>">
+			Phone number <input type="text" name="phone" value="<%=phone%>"> <br>
+			
+			Gender <input type="text" name="gender" value="<%=gender%>">
+			
 			<br> <input type="submit" value="SUBMIT">
 		</h1>
 	</form>
