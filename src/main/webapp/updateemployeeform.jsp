@@ -45,11 +45,15 @@
             <input type="text" name="phone" value="<%=phone%>"> <br>
 
             Gender 
+            <br>
             <input type="radio" name="gender" value="Male"
                 <%= "Male".equalsIgnoreCase(gender) ? "checked" : "" %>> Male
 
             <input type="radio" name="gender" value="Female"
                 <%= "Female".equalsIgnoreCase(gender) ? "checked" : "" %>> Female
+                
+                 <input type="radio" name="gender" value="Other"
+                <%= "Other".equalsIgnoreCase(gender) ? "checked" : "" %>> Other
             <br><br>
 
             <input type="submit" value="SUBMIT">
