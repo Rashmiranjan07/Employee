@@ -1,7 +1,7 @@
-<%@page import="com.qsp.repository2.EmployeeRepository"%>
-<%@page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="com.qsp.repository2.EmployeeRepository"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,53 +12,56 @@
 
 <body>
 
-    <h1>Employee Update Form</h1>
+<h1>Employee Update Form</h1>
 
-    <%! EmployeeRepository employeeRepo = EmployeeRepository.getInstance(); %>
+<%
+EmployeeRepository employeeRepo = EmployeeRepository.getInstance();
 
-    <%
-        String email = request.getParameter("email");
-        ResultSet rs = employeeRepo.getEmployeeByEmail(email);
+String email = request.getParameter("email");
+ResultSet rs = employeeRepo.getEmployeeByEmail(email);
 
-        if (rs == null)
-            return;
+if (rs == null || !rs.next()) {
+	out.println("Employee not found");
+	return;
+}
 
-        rs.next();
+String name = rs.getString(1);
+int age = rs.getInt(2);
+String phone = rs.getString(3);
+String gender = rs.getString(5);
+%>
 
-        String name = rs.getString(1);
-        int age = rs.getInt(2);
-        String phone = rs.getString(3);
-        String gender = rs.getString(5);   // 👈 gender column
-    %>
+<form action="updateemployee" method="post">
 
-    <form action="updateemployee">
-        <h1>
-            <input type="hidden" name="email" value="<%=email%>"> <br>
+	<input type="hidden" name="email" value="<%= email %>">
 
-            Name 
-            <input type="text" name="name" value="<%=name%>"> <br>
+	Name:
+	<input type="text" name="name" value="<%= name %>" required>
+	<br><br>
 
-            Age 
-            <input type="text" name="age" value="<%=age%>"> <br>
+	Age:
+	<input type="number" name="age" value="<%= age %>" required>
+	<br><br>
 
-            Phone number 
-            <input type="text" name="phone" value="<%=phone%>"> <br>
+	Phone:
+	<input type="text" name="phone" value="<%= phone %>" required>
+	<br><br>
 
-            Gender 
-            <br>
-            <input type="radio" name="gender" value="Male"
-                <%= "Male".equalsIgnoreCase(gender) ? "checked" : "" %>> Male
+	Gender:
+	<br>
+	<input type="radio" name="gender" value="Male"
+		<%= "Male".equalsIgnoreCase(gender) ? "checked" : "" %>> Male
 
-            <input type="radio" name="gender" value="Female"
-                <%= "Female".equalsIgnoreCase(gender) ? "checked" : "" %>> Female
-                
-                 <input type="radio" name="gender" value="Other"
-                <%= "Other".equalsIgnoreCase(gender) ? "checked" : "" %>> Other
-            <br>
+	<input type="radio" name="gender" value="Female"
+		<%= "Female".equalsIgnoreCase(gender) ? "checked" : "" %>> Female
 
-            <input type="submit" value="SUBMIT">
-        </h1>
-    </form>
+	<input type="radio" name="gender" value="Other"
+		<%= "Other".equalsIgnoreCase(gender) ? "checked" : "" %>> Other
+	<br><br>
+
+	<input type="submit" value="UPDATE EMPLOYEE">
+
+</form>
 
 </body>
 </html>
