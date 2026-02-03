@@ -12,56 +12,43 @@
 
 <body>
 
-<h1>Employee Update Form</h1>
+	<h1>Employee Update Form</h1>
 
-<%
-EmployeeRepository employeeRepo = EmployeeRepository.getInstance();
+	<%
+	EmployeeRepository employeeRepo = EmployeeRepository.getInstance();
 
-String email = request.getParameter("email");
-ResultSet rs = employeeRepo.getEmployeeByEmail(email);
+	String email = request.getParameter("email");
+	ResultSet rs = employeeRepo.getEmployeeByEmail(email);
 
-if (rs == null || !rs.next()) {
-	out.println("Employee not found");
-	return;
-}
+	if (rs == null || !rs.next()) {
+		out.println("Employee not found");
+		return;
+	}
 
-String name = rs.getString(1);
-int age = rs.getInt(2);
-String phone = rs.getString(3);
-String gender = rs.getString(5);
-%>
+	String name = rs.getString(1);
+	int age = rs.getInt(2);
+	String phone = rs.getString(3);
+	String gender = rs.getString(5);
+	%>
 
-<form action="updateemployee" method="post">
+	<form action="updateemployee" method="post">
 
-	<input type="hidden" name="email" value="<%= email %>">
+		<input type="hidden" name="email" value="<%=email%>"> Name:
+		<input type="text" name="name" value="<%=name%>" required> <br>
+		<br> Age: <input type="number" name="age" value="<%=age%>"
+			required> <br>
+		<br> Phone: <input type="text" name="phone" value="<%=phone%>"
+			required> <br>
+		<br> Gender: <br> <input type="radio" name="gender"
+			value="Male" <%="Male".equalsIgnoreCase(gender) ? "checked" : ""%>>
+		Male <input type="radio" name="gender" value="Female"
+			<%="Female".equalsIgnoreCase(gender) ? "checked" : ""%>>
+		Female <input type="radio" name="gender" value="Other"
+			<%="Other".equalsIgnoreCase(gender) ? "checked" : ""%>>
+		Other <br>
+		<br> <input type="submit" value="UPDATE EMPLOYEE">
 
-	Name:
-	<input type="text" name="name" value="<%= name %>" required>
-	<br><br>
-
-	Age:
-	<input type="number" name="age" value="<%= age %>" required>
-	<br><br>
-
-	Phone:
-	<input type="text" name="phone" value="<%= phone %>" required>
-	<br><br>
-
-	Gender:
-	<br>
-	<input type="radio" name="gender" value="Male"
-		<%= "Male".equalsIgnoreCase(gender) ? "checked" : "" %>> Male
-
-	<input type="radio" name="gender" value="Female"
-		<%= "Female".equalsIgnoreCase(gender) ? "checked" : "" %>> Female
-
-	<input type="radio" name="gender" value="Other"
-		<%= "Other".equalsIgnoreCase(gender) ? "checked" : "" %>> Other
-	<br><br>
-
-	<input type="submit" value="UPDATE EMPLOYEE">
-
-</form>
+	</form>
 
 </body>
 </html>
