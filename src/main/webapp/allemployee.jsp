@@ -37,17 +37,17 @@ body {
 	animation: fadeIn 1s ease-in-out;
 }
 
-@
-keyframes fadeIn {from { opacity:0;
-	transform: translateY(40px);
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-to {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-}
 h1 {
 	text-align: center;
 	color: #fff;
@@ -56,22 +56,38 @@ h1 {
 	letter-spacing: 1px;
 }
 
+/* Table */
 table {
 	width: 100%;
 	border-collapse: separate;
-	border-spacing: 0 12px;
+	border-spacing: 0 14px;
+}
+
+/* HEADER */
+thead tr {
+	background: rgba(255, 255, 255, 0.85);
 }
 
 thead td {
 	color: #2b2b2b;
 	font-weight: 700;
 	font-size: 14px;
-	padding-bottom: 10px;
+	padding: 14px 16px;
 }
 
+thead tr td:first-child {
+	border-top-left-radius: 14px;
+	border-bottom-left-radius: 14px;
+}
+
+thead tr td:last-child {
+	border-top-right-radius: 14px;
+	border-bottom-right-radius: 14px;
+}
+
+/* DATA ROWS */
 tr {
 	background: rgba(255, 255, 255, 0.9);
-	border-radius: 14px;
 }
 
 td {
@@ -80,6 +96,18 @@ td {
 	color: #222;
 }
 
+/* SAME SHAPE AS HEADER FOR CONTENT */
+tbody tr td:first-child {
+	border-top-left-radius: 14px;
+	border-bottom-left-radius: 14px;
+}
+
+tbody tr td:last-child {
+	border-top-right-radius: 14px;
+	border-bottom-right-radius: 14px;
+}
+
+/* Buttons */
 a {
 	text-decoration: none;
 	padding: 7px 14px;
@@ -95,9 +123,19 @@ a {
 	color: #fff;
 }
 
+.update:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(0, 114, 255, 0.6);
+}
+
 .delete {
 	background: linear-gradient(135deg, #ff758c, #ff7eb3);
 	color: #fff;
+}
+
+.delete:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(255, 117, 140, 0.6);
 }
 
 .footer-text {
@@ -143,13 +181,18 @@ a {
 					<td><%=rs.getString(3)%></td>
 					<td><%=rs.getString(4)%></td>
 					<td><%=rs.getString(5)%></td>
-					<!-- GENDER -->
 
-					<td><a class="update"
+					<td>
+						<a class="update"
 						href="updateemployeeform.jsp?email=<%=rs.getString(4)%>">
-							Update </a></td>
-					<td><a class="delete"
-						href="deleteemployee?email=<%=rs.getString(4)%>"> Delete </a></td>
+						Update</a>
+					</td>
+
+					<td>
+						<a class="delete"
+						href="deleteemployee?email=<%=rs.getString(4)%>">
+						Delete</a>
+					</td>
 				</tr>
 				<%
 				}
