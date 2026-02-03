@@ -76,18 +76,18 @@ public class EmployeeRepository {
 		}
 	}
 
-	public void updateEmployeeByEmail(String email, String name, int age, String phone, String gender) {
+	public void updateEmployeeByEmail(String email, String ename, int eage, String phone, String egender) {
 
-		String sql = "update employeTable set name=?, age=?, phone=?, gender=? where email=?";
+		String sql = "update employeTable set ename=?, eage=?, phone=?, egender=? where email=?";
 
 		try {
 			Connection con = ConnectionPool.supply();
 			PreparedStatement ps = con.prepareStatement(sql);
 
-			ps.setString(1, name);
-			ps.setInt(2, age);
+			ps.setString(1, ename);
+			ps.setInt(2, eage);
 			ps.setString(3, phone);
-			ps.setString(4, gender);
+			ps.setString(4, egender);
 			ps.setString(5, email);
 
 			ps.executeUpdate();
