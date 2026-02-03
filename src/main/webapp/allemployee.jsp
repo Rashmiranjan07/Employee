@@ -26,10 +26,9 @@ body {
 	padding: 30px;
 }
 
-/* Container */
 .container {
 	width: 100%;
-	max-width: 1000px;
+	max-width: 1100px;
 	background: rgba(255, 255, 255, 0.15);
 	backdrop-filter: blur(12px);
 	border-radius: 22px;
@@ -38,19 +37,17 @@ body {
 	animation: fadeIn 1s ease-in-out;
 }
 
-@
-keyframes fadeIn {from { opacity:0;
-	transform: translateY(40px);
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-to {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-}
-
-/* Title */
 h1 {
 	text-align: center;
 	color: #fff;
@@ -59,7 +56,6 @@ h1 {
 	letter-spacing: 1px;
 }
 
-/* Table */
 table {
 	width: 100%;
 	border-collapse: separate;
@@ -67,7 +63,7 @@ table {
 }
 
 thead td {
-	color: #2b2b2b; /* darker heading */
+	color: #2b2b2b;
 	font-weight: 700;
 	font-size: 14px;
 	padding-bottom: 10px;
@@ -84,17 +80,6 @@ td {
 	color: #222;
 }
 
-tr td:first-child {
-	border-top-left-radius: 14px;
-	border-bottom-left-radius: 14px;
-}
-
-tr td:last-child {
-	border-top-right-radius: 14px;
-	border-bottom-right-radius: 14px;
-}
-
-/* Buttons */
 a {
 	text-decoration: none;
 	padding: 7px 14px;
@@ -110,103 +95,76 @@ a {
 	color: #fff;
 }
 
-.update:hover {
-	box-shadow: 0 8px 20px rgba(0, 114, 255, 0.6);
-	transform: translateY(-2px);
-}
-
 .delete {
 	background: linear-gradient(135deg, #ff758c, #ff7eb3);
 	color: #fff;
 }
 
-.delete:hover {
-	box-shadow: 0 8px 20px rgba(255, 117, 140, 0.6);
-	transform: translateY(-2px);
-}
-
-/* Footer */
 .footer-text {
 	margin-top: 22px;
 	text-align: center;
 	font-size: 13px;
 	color: #eee;
-	opacity: 0.9;
-}
-
-/* Mobile */
-@media ( max-width : 768px) {
-	table, thead, tbody, tr, td {
-		display: block;
-		width: 100%;
-	}
-	thead {
-		display: none;
-	}
-	tr {
-		margin-bottom: 12px;
-		padding: 10px;
-	}
-	td {
-		padding: 10px;
-	}
 }
 </style>
 </head>
 
 <body>
 
-	<%
-	EmployeeRepository employeerepo = EmployeeRepository.getInstance();
-	ResultSet rs = employeerepo.getAllEmployee();
-	%>
+<%
+EmployeeRepository employeerepo = EmployeeRepository.getInstance();
+ResultSet rs = employeerepo.getAllEmployee();
+%>
 
-	<div class="container">
+<div class="container">
 
-		<h1>All Employees</h1>
+	<h1>All Employees</h1>
 
-		<table>
-			<thead>
-				<tr>
-					<td>Name</td>
-					<td>Age</td>
-					<td>Phone</td>
-					<td>Email</td>
-					<td>Update</td>
-					<td>Delete</td>
-				</tr>
-			</thead>
+	<table>
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Age</td>
+				<td>Phone</td>
+				<td>Email</td>
+				<td>Gender</td>
+				<td>Update</td>
+				<td>Delete</td>
+			</tr>
+		</thead>
 
-			<tbody>
-				<%
-				while (rs != null && rs.next()) {
-				%>
-				<tr>
-					<td><%=rs.getString(1)%></td>
-					<td><%=rs.getInt(2)%></td>
-					<td><%=rs.getString(3)%></td>
-					<td><%=rs.getString(4)%></td>
+		<tbody>
+		<%
+		while (rs != null && rs.next()) {
+		%>
+			<tr>
+				<td><%= rs.getString(1) %></td>
+				<td><%= rs.getInt(2) %></td>
+				<td><%= rs.getString(3) %></td>
+				<td><%= rs.getString(4) %></td>
+				<td><%= rs.getString(5) %></td>  <!-- GENDER -->
 
-					<td><a class="update"
-						href="updateemployeeform.jsp?email=<%=rs.getString(4)%>"> Update </a>
-					</td>
-					<td><a class="delete"
-						href="deleteemployee?email=<%=rs.getString(4)%>"> Delete </a></td>
+				<td>
+					<a class="update"
+					   href="updateemployeeform.jsp?email=<%= rs.getString(4) %>">
+					   Update
+					</a>
+				</td>
+				<td>
+					<a class="delete"
+					   href="deleteemployee?email=<%= rs.getString(4) %>">
+					   Delete
+					</a>
+				</td>
+			</tr>
+		<%
+		}
+		%>
+		</tbody>
+	</table>
 
-				</tr>
-				<%
-				}
-				%>
-			</tbody>
-		</table>
-
-		<div class="footer-text">Employee Management System</div>
-
-	</div>
+	<div class="footer-text">Employee Management System</div>
+</div>
 
 </body>
 </html>
-
-
-
-
