@@ -128,7 +128,7 @@ td {
 
 	if (email != null) {
 		try {
-			rs = emprepo.getStudentByEmail(email);
+			rs = emprepo.getEmployeeByEmail(email);
 			if (rs.next()) {
 		found = true;
 		name = rs.getString(1);
