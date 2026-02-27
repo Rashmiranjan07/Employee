@@ -26,7 +26,7 @@ public class AddEmployeeServlet extends HttpServlet {
         RequestDispatcher rd = req.getRequestDispatcher("/emptydata");
 
         String name = req.getParameter("ename");
-        if (name == null || name.isEmpty()) {
+        if (name == null || name.isEmpty()) {  
             req.setAttribute("error", "name is empty");
             rd.forward(req, resp);
             return;
@@ -71,3 +71,4 @@ public class AddEmployeeServlet extends HttpServlet {
         pw.println("<h1>" + response + "</h1>");
     }
 }
+
